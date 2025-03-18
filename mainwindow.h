@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtSql/QtSql>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,6 +15,14 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private:
+    void rechercher();
+    void afficherResultat( QSqlQuery query );
+    void ajouterConditionAnnnee( QString & requete);
+
+private slots:
+    void on_pushButtonRechercher_clicked();
 
 private:
     Ui::MainWindow *ui;
